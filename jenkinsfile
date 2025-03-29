@@ -6,12 +6,7 @@ pipeline{
     }
 
     stages{
-    
-        stage('configure'){
-            steps{
-                sh 'npm install'
-            }
-        }
+        
         stage('built'){
             steps{
             sh 'npm run build'
