@@ -1,1 +1,33 @@
 
+pipeline{
+    agent any
+    tools{
+        maven 'maven'
+    }
+
+    stages{
+    
+        stage('configure'){
+            steps{
+                sh 'npm install'
+            }
+        }
+        stage('built'){
+            steps{
+            sh 'npm run build'
+            }
+        }
+
+        stage('test'){
+            steps{
+                sh 'npm test'
+            }
+        }
+
+        stage('deploy'){
+            steps{
+                sh 'npm deploy'
+            }
+        }
+    }
+}
